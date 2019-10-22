@@ -6,17 +6,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="ADD NEW DIARY"
-    android:id="@+id/switch_screen"
-    android:background="#e8441b"
-    android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/switch_screen"
+        android:layout_width="145dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/icon_add" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/diaries_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:paddingHorizontal="10pt"
+        android:paddingVertical="10pt" />
 
 </LinearLayout>

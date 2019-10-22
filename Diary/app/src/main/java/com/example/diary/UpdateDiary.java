@@ -18,6 +18,7 @@ public class UpdateDiary extends AppCompatActivity {
     EditText edtContent;
     Button btnUpdate;
     int id_item;
+    Button btncancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class UpdateDiary extends AppCompatActivity {
         edtTitle = findViewById(R.id.title_updating);
         edtContent = findViewById(R.id.content_updating);
         btnUpdate = findViewById(R.id.btnSaveChange);
+        btncancel = findViewById(R.id.btnCancelChange);
 
         int id = getIntent().getIntExtra("id", 0);
         id_item = id;
@@ -43,6 +45,12 @@ public class UpdateDiary extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 updateTodoToDatabase();
+            }
+        });
+        btncancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }

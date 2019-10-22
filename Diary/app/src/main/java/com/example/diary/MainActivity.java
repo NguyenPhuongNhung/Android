@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView diaries_recycler_view;
     DiaryAdapter adapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         db = Room.databaseBuilder(getApplicationContext(),
                 AppDatabase.class, "database-name").build();
+
 
         diaries_recycler_view = findViewById(R.id.diaries_recycler);
         diaries_recycler_view.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
@@ -42,7 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onDeleteClick(int position) {
+                Log.i("tag", "position" + position);
                 deleteItemDiary(adapter.diaries.get(position));
+                Log.i("tag", "position data" + adapter.diaries);
+
+
             }
         };
         diaries_recycler_view.setAdapter(adapter);
@@ -74,20 +80,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void deleteItemDiary( Diary diary) {
+    private void deleteItemDiary(final Diary diary) {
         new AsyncTask<Void, Void, List<Diary>>() {
             @Override
             protected List<Diary> doInBackground(Void... voids) {
-                Diary diaryDeleted = new Diary();
-                 db.diaryDao().deleteDiary(diaryDeleted);
-                 return  null;
+                db.diaryDao().deleteDiary(diary);
+                return null;
             }
 
             @Override
             protected void onPostExecute(List<Diary> diaryList) {
                 super.onPostExecute(diaryList);
                 adapter.diaries = diaryList;
-                adapter.notifyDataSetChanged();
+//                adapter.notifyDataSetChanged();
+                getDiaryFromDatabase();
             }
         }.execute();
     }

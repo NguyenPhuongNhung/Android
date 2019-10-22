@@ -20,7 +20,7 @@ public class AddDiaryActivity extends AppCompatActivity {
     EditText txtTitle;
     EditText txtContent;
     Button buttonAdd;
-
+    Button btnCancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +33,19 @@ public class AddDiaryActivity extends AppCompatActivity {
         txtTitle = findViewById(R.id.title);
         txtContent = findViewById(R.id.content);
         buttonAdd = findViewById(R.id.btnAdd);
+        btnCancel = findViewById(R.id.btnCancel);
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addNewDiaryDatabase();
+                finish();
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
             }
         });
