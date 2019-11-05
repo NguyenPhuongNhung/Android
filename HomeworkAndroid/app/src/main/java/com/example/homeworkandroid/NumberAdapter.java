@@ -8,12 +8,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import java.util.ArrayList;
+
 
     public class NumberAdapter extends RecyclerView.Adapter<NumberAdapter.NumberViewHolder> {
-        public int [] listNumbers ;
+        public ArrayList listNumbers = new ArrayList();
 
-        public NumberAdapter(MainActivity mainActivity, int[] listNumbers) {
+        public NumberAdapter(MainActivity mainActivity, ArrayList listNumbers) {
             this.listNumbers = listNumbers;
         }
 
@@ -27,12 +28,12 @@ import java.util.List;
 
         @Override
         public void onBindViewHolder(@NonNull NumberViewHolder holder, int position) {
-            holder.tvView.setText(" "+ position );
+            holder.tvView.setText(" " +listNumbers.get(position));
         }
 
         @Override
         public int getItemCount() {
-                return listNumbers.length;
+                return listNumbers.size();
 
         }
 
