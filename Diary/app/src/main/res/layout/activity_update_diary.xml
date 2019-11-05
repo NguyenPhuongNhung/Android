@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddDiaryActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:fontWeight="900"
+        android:text="UPDATE DIARY"
+        android:textColor="#990000"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/title_updating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Title :" />
+
+    <EditText
+        android:id="@+id/content_updating"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:gravity="top"
+        android:hint="Content: "
+        android:inputType="text|textMultiLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSaveChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="60dp"
+            android:background="#69d420"
+            android:text="Save " />
+
+        <Button
+            android:id="@+id/btnCancelChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:background="#F11035"
+            android:text="Cancel" />
+    </LinearLayout>
+
+</LinearLayout>
